@@ -84,16 +84,3 @@ To build an end-to-end ML project that:
 -  Customer will CHURN  
 
 ---
-
-##  Project Structure
-
-Customer-Churn-Prediction/
-│
-├── app.py
-├── customer_churn.ipynb
-├── Telco_customer_churn.xlsx
-├── knn_model.pkl
-├── scaler.pkl
-├── columns.pkl
-└── README.md
-
