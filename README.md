@@ -100,7 +100,7 @@ This will:
 ### Run the app
 
 ```bash
-python app.py
+python -m streamlit run app.py
 ```
 
 ---
