@@ -20,6 +20,11 @@ The system includes:
 
 ---
 
+## Live Demo  
+Streamlit App Link:  *https://customer-churn-prediction-4ippd6emidve4v9dckebwh.streamlit.app/*
+
+---
+
 ## Model Used
 
 **Best Model Selected:** `RandomForestClassifier`
