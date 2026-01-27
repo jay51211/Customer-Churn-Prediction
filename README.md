@@ -13,11 +13,10 @@ The system includes:
 * Data preprocessing
 * Feature encoding
 * Scaling
-* Class imbalance handling (SMOTE)
 * Model training
 * Model evaluation
 * Model serialization
-* Deployment integration (Flask/Streamlit ready)
+* Deployment integration (Streamlit)
 
 ---
 
@@ -49,54 +48,6 @@ project-folder/
 
 ---
 
-## Important Note About Model File
-
-> The file `pipeline.pkl` is **NOT included** in this repository because of its large size.
-
-### How to generate it:
-
-You can easily recreate the model file by running the Jupyter notebook:
-
-**`customer_churn.ipynb`**
-
-At the end of the notebook, the trained pipeline is saved using:
-
-```python
-with open("pipeline.pkl", "wb") as f:
-    pickle.dump(pipeline, f)
-```
-
-This will automatically generate:
-
-```
-pipeline.pkl
-```
-
----
-
-### Train the model
-
-Open Jupyter Notebook:
-
-```bash
-jupyter notebook
-```
-
-Run:
-
-```
-customer_churn.ipynb
-```
-
-This will:
-
-* Preprocess data
-* Train model
-* Evaluate performance
-* Save the trained pipeline as `pipeline.pkl`
-
----
-
 ### Run the app
 
 ```bash
@@ -111,9 +62,7 @@ python -m streamlit run app.py
 * `OneHotEncoder`
 * `StandardScaler`
 * `RandomForestClassifier`
-
-All steps are wrapped in **one unified pipeline**, making deployment safe and consistent.
-
+* 
 ---
 
 ## Model Performance
