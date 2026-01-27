@@ -1,86 +1,152 @@
-#  Customer Churn Prediction
+# Customer Churn Prediction Project
 
-This is a **Machine Learning + Streamlit web app** that predicts whether a telecom customer will **Churn (Leave)** or **Stay** using the **K-Nearest Neighbors (KNN) Classifier**.
-
----
-
-##  Project Overview
-
-Customer churn means when a customer stops using a service.  
-This project helps predict churn so that companies can take action to retain customers.
-
-The app allows users to enter customer details using a simple Streamlit UI and get a churn prediction instantly.
+This project builds an end-to-end **machine learning pipeline** to predict customer churn using Python, Scikit-learn, and a trained **RandomForestClassifier**. The pipeline includes data preprocessing, class balancing, model training, evaluation, and deployment integration.
 
 ---
 
-##  Objective
+## Project Overview
 
-To build an end-to-end ML project that:
+The goal of this project is to predict whether a customer will **churn (leave the service)** based on their demographic, service usage, and account information.
 
- Cleans and preprocesses telecom customer data  
- Trains a **KNN Classifier** model  
- Evaluates performance using Accuracy, Precision, Recall, F1 Score  
- Deploys prediction using a **Streamlit web application**
+The system includes:
 
----
-
-##  Dataset
-
-- Dataset Name: **Telco Customer Churn**
-- File Used: `Telco_customer_churn.xlsx`
-- Target Column: **Churn Value**
-  - `1` → Customer will churn
-  - `0` → Customer will stay
+* Data preprocessing
+* Feature encoding
+* Scaling
+* Class imbalance handling (SMOTE)
+* Model training
+* Model evaluation
+* Model serialization
+* Deployment integration (Flask/Streamlit ready)
 
 ---
 
-##  Technologies Used
+## Model Used
 
-- Python   
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- Streamlit  
+**Best Model Selected:** `RandomForestClassifier`
 
----
+### Why Random Forest?
 
-##  Machine Learning Workflow
-
-###  Steps Performed
-
-1. Load dataset  
-2. Remove unnecessary / leakage columns:
-   - CustomerID, Churn Label, Churn Score, Churn Reason, CLTV, City, Zip Code, etc.
-3. Handle missing values (Total Charges)
-4. Encode categorical features (Label Encoding + One Hot Encoding)
-5. Split data into Train/Test set
-6. Feature scaling using StandardScaler (Required for KNN)
-7. Train KNN Classifier and find best `k`
-8. Evaluate model using:
-   - Accuracy
-   - Precision
-   - Recall
-   - F1 Score
-   - Confusion Matrix
+* High accuracy
+* Handles non-linear relationships well
+* Robust to noise
+* Reduces overfitting vs single decision trees
+* Works well with mixed feature types
 
 ---
 
-##  Model Performance (Example)
+## Project Structure
 
-- Accuracy ≈ **78%**
-- Precision, Recall, F1 score calculated using test dataset
-
-*(Your score may vary slightly depending on split and k value.)*
+```
+project-folder/
+│
+├── app.py                      
+├── customer_churn.ipynb  
+├── pipeline.pkl      
+├── requirements.txt         
+└── README.md                  
+```
 
 ---
 
-##  Streamlit App Features
+## Important Note About Model File
 
- Sidebar input form for customer details  
- Dropdown selections for categorical values  
- Number input for numeric values  
- Prediction result displayed clearly:
--  Customer will STAY  
--  Customer will CHURN  
+> The file `pipeline.pkl` is **NOT included** in this repository because of its large size.
+
+### How to generate it:
+
+You can easily recreate the model file by running the Jupyter notebook:
+
+**`customer_churn.ipynb`**
+
+At the end of the notebook, the trained pipeline is saved using:
+
+```python
+with open("pipeline.pkl", "wb") as f:
+    pickle.dump(pipeline, f)
+```
+
+This will automatically generate:
+
+```
+pipeline.pkl
+```
+
+---
+
+### Train the model
+
+Open Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Run:
+
+```
+customer_churn.ipynb
+```
+
+This will:
+
+* Preprocess data
+* Train model
+* Evaluate performance
+* Save the trained pipeline as `pipeline.pkl`
+
+---
+
+### Run the app
+
+```bash
+python app.py
+```
+
+---
+
+##  Model Pipeline Components
+
+* `ColumnTransformer`
+* `OneHotEncoder`
+* `StandardScaler`
+* `RandomForestClassifier`
+
+All steps are wrapped in **one unified pipeline**, making deployment safe and consistent.
+
+---
+
+## Model Performance
+
+The Random Forest model was selected based on:
+
+* Accuracy
+* Stability
+* Generalization performance
+* Lower overfitting
+
+---
+
+## Tech Stack
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Imbalanced-learn
+* Matplotlib / Seaborn
+* Pickle
+* Streamlit
+
+---
+
+## Features
+
+* End-to-end ML pipeline
+* Automatic preprocessing
+* Class imbalance handling
+* Production-ready model
+* Deployable architecture
+* Scalable design
 
 ---
