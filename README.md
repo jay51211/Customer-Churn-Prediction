@@ -1,106 +1,107 @@
-# Customer Churn Prediction Project
+# 📉 Customer Churn Prediction
 
-This project builds an end-to-end **machine learning pipeline** to predict customer churn using Python, Scikit-learn, and a trained **RandomForestClassifier**. The pipeline includes data preprocessing, class balancing, model training, evaluation, and deployment integration.
-
----
-
-## Project Overview
-
-The goal of this project is to predict whether a customer will **churn (leave the service)** based on their demographic, service usage, and account information.
-
-The system includes:
-
-* Data preprocessing
-* Feature encoding
-* Scaling
-* Model training
-* Model evaluation
-* Model serialization
-* Deployment integration (Streamlit)
+> Predicting telecom customer churn using an end-to-end ML pipeline — with a live Streamlit app for business teams to use without writing a single line of code.
 
 ---
 
-## Live Demo  
-Streamlit App Link:  *https://customer-churn-prediction-4ippd6emidve4v9dckebwh.streamlit.app/*
+## 🧩 Problem Statement
+
+Telecom companies lose significant revenue every year due to customer churn. The challenge is identifying **which customers are likely to leave before they actually do**, so the business can take proactive retention action.
+
+This project builds a production-ready machine learning pipeline that predicts churn probability for each customer based on their demographics, service usage, and account history.
 
 ---
 
-## Model Used
+## 🚀 Live Demo
 
-**Best Model Selected:** `RandomForestClassifier`
+🔗 **[Try the Streamlit App](https://customer-churn-prediction-4ippd6emidve4v9dckebwh.streamlit.app/)**
 
-### Why Random Forest?
-
-* High accuracy
-* Handles non-linear relationships well
-* Robust to noise
-* Reduces overfitting vs single decision trees
-* Works well with mixed feature types
+Business users can enter customer details and instantly get a churn prediction — no coding required.
 
 ---
 
-## Project Structure
+## 📊 Dataset
+
+- **Source:** Telecom Customer Churn dataset
+- **Records:** ~7,000 customers
+- **Features:** Demographics, contract type, tenure, monthly charges, service subscriptions, payment method
+- **Target:** `Churn` — Yes / No
+
+---
+
+## 🔍 Key Findings from EDA
+
+- **Month-to-Month contract customers** churn at 3x the rate of yearly contract customers
+- **Customers in the first 12 months** are the highest churn risk — early engagement is critical
+- **Higher monthly charges** correlate strongly with churn, especially when paired with low tenure
+- **Customers without tech support or online security** churn significantly more
+
+---
+
+## 💡 Business Recommendations
+
+1. **Target new customers (0–12 months)** with loyalty incentives and onboarding support — this is the highest-risk window
+2. **Offer contract upgrade discounts** to Month-to-Month customers, since long-term contracts drastically reduce churn
+3. **Bundle tech support and security services** for high-value customers — these features are strong churn reducers
+4. **Flag high monthly charge + low tenure customers** as priority for retention calls
+
+---
+
+## 🛠️ Tech Stack
+
+| Area | Tools |
+|------|-------|
+| Data Analysis | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| ML Pipeline | Scikit-learn (ColumnTransformer, OneHotEncoder, StandardScaler) |
+| Model | RandomForestClassifier |
+| Class Imbalance | Imbalanced-learn (SMOTE) |
+| Deployment | Streamlit, Pickle |
+
+---
+
+## 🏗️ Project Structure
 
 ```
-project-folder/
+Customer-Churn-Prediction/
 │
-├── app.py                      
-├── customer_churn.ipynb  
-├── pipeline.pkl      
-├── requirements.txt         
-└── README.md                  
+├── customer_churn.ipynb       # Full EDA + model training notebook
+├── app.py                     # Streamlit web app
+├── pipeline.pkl               # Trained & serialized ML pipeline
+├── telecom_customer_churn.csv # Dataset
+├── requirements.txt           # Dependencies
+└── README.md
 ```
 
 ---
 
-### Run the app
+## ⚙️ Run Locally
 
 ```bash
-python -m streamlit run app.py
+# Clone the repo
+git clone https://github.com/jay51211/Customer-Churn-Prediction.git
+cd Customer-Churn-Prediction
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the app
+streamlit run app.py
 ```
 
 ---
 
-##  Model Pipeline Components
+## 📈 Model Performance
 
-* `ColumnTransformer`
-* `OneHotEncoder`
-* `StandardScaler`
-* `RandomForestClassifier`
-* 
----
-
-## Model Performance
-
-The Random Forest model was selected based on:
-
-* Accuracy
-* Stability
-* Generalization performance
-* Lower overfitting
+The **RandomForestClassifier** was selected after comparing multiple models. It was chosen for its:
+- Strong accuracy on imbalanced data (after SMOTE balancing)
+- Robustness to noisy/missing features
+- Interpretability via feature importance scores
 
 ---
 
-## Tech Stack
+## 👤 Author
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* Imbalanced-learn
-* Matplotlib / Seaborn
-* Pickle
-* Streamlit
-
----
-
-## Features
-
-* End-to-end ML pipeline
-* Automatic preprocessing
-* Class imbalance handling
-* Production-ready model
-* Deployable architecture
-* Scalable design
-
----
+**Jay Kumbhar**
+📧 jaykumbhar518@gmail.com
+💼 [LinkedIn](https://linkedin.com/in/jaykumbhar5121) | 💻 [GitHub](https://github.com/jay51211)
